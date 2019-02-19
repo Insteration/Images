@@ -53,18 +53,22 @@ class MainTableViewController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath)
-
+        
         cell.selectionStyle = .blue
         cell.accessoryType = .disclosureIndicator
+        
         let headline = headlines[indexPath.row]
         let font = UIFont.preferredFont(forTextStyle: .headline)
         let textColor = UIColor(red: 0.175, green: 0.458, blue: 0.831, alpha: 1.0)
         let attributes: [NSAttributedString.Key: Any] = [.foregroundColor: textColor, .font: font, .textEffect: NSAttributedString.TextEffectStyle.letterpressStyle]
         let attributedStringTextLabel = NSAttributedString(string: headline.title, attributes: attributes)
         let attributedStringDetailTextLabel = NSAttributedString(string: headline.text, attributes: attributes)
+        
         cell.textLabel?.attributedText = attributedStringTextLabel
         cell.detailTextLabel?.attributedText = attributedStringDetailTextLabel
-        cell.imageView?.image = UIImage(named: headline.image)
+        
+        let myImage = UIImage(named: headline.image)?.roundedImage
+        cell.imageView?.image = myImage
         
         return cell
     }
@@ -131,4 +135,17 @@ class MainTableViewController: UITableViewController {
     }
     */
 
+}
+
+extension UIImage{
+    var roundedImage: UIImage {
+        let rect = CGRect(origin:CGPoint(x: 0, y: 0), size: self.size)
+        UIGraphicsBeginImageContextWithOptions(self.size, false, 1)
+        UIBezierPath(
+            roundedRect: rect,
+            cornerRadius: self.size.height
+            ).addClip()
+        self.draw(in: rect)
+        return UIGraphicsGetImageFromCurrentImageContext()!
+    }
 }
