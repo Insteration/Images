@@ -53,27 +53,17 @@ class MainTableViewController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath)
-        
 
-//        let font = UIFont.preferredFont(forTextStyle: .headline)
-//        let textColor = UIColor(red: 0.175, green: 0.458, blue: 0.831, alpha: 1.0)
-//        let attributes: [NSAttributedString.Key: Any] = [.foregroundColor: textColor, .font: font, .textEffect: NSAttributedString.TextEffectStyle.letterpressStyle]
-//        let attributedString = NSAttributedString(string: imagesName[indexPath.row], attributes: attributes)
-//        cell.textLabel?.attributedText = attributedString
-//        cell.selectionStyle = .blue
-//
-//        cell.accessoryType = .disclosureIndicator
-//        cell.imageView?.image = images[indexPath.row]
-//
-//
-//        cell.detailTextLabel?.text = "пидарасня ебучая заебала всех"
-
-//        cell.textLabel?.text = images[indexPath.row]
-        
-        
+        cell.selectionStyle = .blue
+        cell.accessoryType = .disclosureIndicator
         let headline = headlines[indexPath.row]
-        cell.textLabel?.text = headline.title
-        cell.detailTextLabel?.text = headline.text
+        let font = UIFont.preferredFont(forTextStyle: .headline)
+        let textColor = UIColor(red: 0.175, green: 0.458, blue: 0.831, alpha: 1.0)
+        let attributes: [NSAttributedString.Key: Any] = [.foregroundColor: textColor, .font: font, .textEffect: NSAttributedString.TextEffectStyle.letterpressStyle]
+        let attributedStringTextLabel = NSAttributedString(string: headline.title, attributes: attributes)
+        let attributedStringDetailTextLabel = NSAttributedString(string: headline.text, attributes: attributes)
+        cell.textLabel?.attributedText = attributedStringTextLabel
+        cell.detailTextLabel?.attributedText = attributedStringDetailTextLabel
         cell.imageView?.image = UIImage(named: headline.image)
         
         return cell
