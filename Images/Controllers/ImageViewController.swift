@@ -26,11 +26,20 @@ class ImageViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        let tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(imageTapped(tapGestureRecognizer:)))
+        imageView.isUserInteractionEnabled = true
+        imageView.addGestureRecognizer(tapGestureRecognizer)
+        
         
         imageTitleName.title = image?.title
         guard let myImage = UIImage(named: (image?.image)!) else {return}
         imageView.image = myImage.roundedImage
         imageNameLabel.text = image?.title
         imageSubTitileTextView.text = image?.text
+    }
+    
+    @objc func imageTapped(tapGestureRecognizer: UITapGestureRecognizer) {
+        let tappedImage = tapGestureRecognizer.view as! UIImageView
+        imageNameLabel.text = "TAP TAP"
     }
 }

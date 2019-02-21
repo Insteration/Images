@@ -470,12 +470,12 @@
                             </connections>
                         </barButtonItem>
                         <rightBarButtonItems>
-                            <barButtonItem title="Item" image="user" id="EGD-am-8BT">
+                            <barButtonItem title="User" image="user" id="EGD-am-8BT">
                                 <connections>
                                     <segue destination="mfd-9u-Jgk" kind="show" id="vkh-yD-Jww"/>
                                 </connections>
                             </barButtonItem>
-                            <barButtonItem title="Item" image="settings" id="W4A-8r-OMz">
+                            <barButtonItem systemItem="edit" id="W4A-8r-OMz">
                                 <connections>
                                     <action selector="moveTablesButtonAction:" destination="3Zq-y6-fXW" id="Cs7-8Z-589"/>
                                 </connections>

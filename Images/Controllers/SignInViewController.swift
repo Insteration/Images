@@ -16,7 +16,7 @@ class SignInViewController: UIViewController {
     @IBOutlet weak var passwordTextField: UITextField!
     @IBOutlet weak var orTextLabel: UILabel!
     
-    fileprivate func createSignInSignOutButtons() {
+    fileprivate func createSignUpSignOutButtons() {
         signUpButton.layer.borderWidth = 2
         signUpButton.layer.borderColor = UIColor.red.cgColor
         signUpButton.layer.cornerRadius = 10
@@ -24,6 +24,16 @@ class SignInViewController: UIViewController {
         signUpButton.addTarget(self, action: #selector(signInButtonPressed(sender:)), for: .touchDown)
         signUpButton.addTarget(self, action: #selector(signInButtonTyped(sender:)), for: .touchUpInside)
     }
+    
+    fileprivate func createSignInSignOutButtons() {
+        signInButton.layer.borderWidth = 2
+        signInButton.layer.borderColor = UIColor.red.cgColor
+        signInButton.layer.cornerRadius = 10
+        signInButton.clipsToBounds = true
+        signInButton.addTarget(self, action: #selector(signInButtonPressed(sender:)), for: .touchDown)
+        signInButton.addTarget(self, action: #selector(signInButtonTyped(sender:)), for: .touchUpInside)
+    }
+    
     
     fileprivate func createLoginPasswordTextFields() {
         loginTextField.layer.cornerRadius = 10
@@ -146,7 +156,7 @@ class SignInViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         createOrLabel()
-        createSignInSignOutButtons()
+        createSignUpSignOutButtons()
         createLoginPasswordTextFields()
         createDissmisKeyboardOnTap()
         
