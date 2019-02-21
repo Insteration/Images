@@ -156,6 +156,7 @@ class SignInViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         createOrLabel()
+        createSignInSignOutButtons()
         createSignUpSignOutButtons()
         createLoginPasswordTextFields()
         createDissmisKeyboardOnTap()
@@ -178,12 +179,18 @@ class SignInViewController: UIViewController {
         showOrTextLabelWithAnimation(view: orTextLabel, hidden: false)
     }
     
+    fileprivate func jumpToMainTableViewController() {
+        let storyboard : UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
+        let MainTCV = storyboard.instantiateViewController(withIdentifier: "MainTableViewController") as! MainTableViewController
+        let navigationController = UINavigationController(rootViewController: MainTCV)
+        self.present(navigationController, animated: true, completion: nil)
+    }
 
     @IBAction func cancelButtonAction(_ sender: UIBarButtonItem) {
         dismiss(animated: true, completion: nil)
     }
     @IBAction func signInButtonAction(_ sender: UIButton) {
-        
+        jumpToMainTableViewController()
     }
     
 }
