@@ -210,13 +210,13 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="XoV-hv-K0v" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4589.6000000000004" y="812.74362818590714"/>
+            <point key="canvasLocation" x="4590" y="813"/>
         </scene>
         <!--Settings-->
         <scene sceneID="mQm-vM-dEk">
             <objects>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bhL-TX-ymd" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <tableViewController id="M7Q-M3-Ww9" customClass="SettingsViewController" customModule="Images" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController id="M7Q-M3-Ww9" customClass="ImageSettingsViewController" customModule="Images" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="grouped" separatorStyle="singleLineEtched" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="18" sectionFooterHeight="18" id="hCt-8M-sbG">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -322,6 +322,11 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="Settings" id="iAb-AU-EMs"/>
+                    <connections>
+                        <outlet property="imageAlphaSlider" destination="Xhy-pi-nbe" id="scY-YI-8ci"/>
+                        <outlet property="imageAnimationSwitch" destination="S6a-Oi-mqj" id="iJt-QE-CIu"/>
+                        <outlet property="imageTappingSwitch" destination="hHq-D5-2qB" id="7vM-iu-grH"/>
+                    </connections>
                 </tableViewController>
             </objects>
             <point key="canvasLocation" x="5484" y="812.74362818590714"/>
@@ -329,18 +334,51 @@
         <!--User Profile-->
         <scene sceneID="g85-20-ZgC">
             <objects>
-                <viewController id="mfd-9u-Jgk" sceneMemberID="viewController">
+                <viewController id="mfd-9u-Jgk" customClass="UserViewController" customModule="Images" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="fIT-zK-B97">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="avatar" translatesAutoresizingMaskIntoConstraints="NO" id="hEo-L7-Pr4">
+                                <rect key="frame" x="16" y="64" width="343" height="433"/>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="User Login" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SY8-Hr-kW3">
+                                <rect key="frame" x="16" y="505" width="343" height="40"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="Hd7-I4-f3X"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="30"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="User Password" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BHu-qe-qFv">
+                                <rect key="frame" x="16" y="553" width="343" height="40"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="30"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="SY8-Hr-kW3" firstAttribute="leading" secondItem="BHu-qe-qFv" secondAttribute="leading" id="87t-mr-u3x"/>
+                            <constraint firstItem="SY8-Hr-kW3" firstAttribute="trailing" secondItem="hEo-L7-Pr4" secondAttribute="trailing" id="8QB-Vo-gri"/>
+                            <constraint firstItem="SY8-Hr-kW3" firstAttribute="top" secondItem="hEo-L7-Pr4" secondAttribute="bottom" constant="8" symbolic="YES" id="IWg-cR-fOn"/>
+                            <constraint firstItem="SY8-Hr-kW3" firstAttribute="leading" secondItem="hEo-L7-Pr4" secondAttribute="leading" id="MFb-md-AAw"/>
+                            <constraint firstItem="gOS-uS-kGx" firstAttribute="bottom" secondItem="hEo-L7-Pr4" secondAttribute="bottom" constant="170" id="QI3-0X-OLu"/>
+                            <constraint firstItem="SY8-Hr-kW3" firstAttribute="trailing" secondItem="BHu-qe-qFv" secondAttribute="trailing" id="WSe-6K-ASc"/>
+                            <constraint firstItem="hEo-L7-Pr4" firstAttribute="top" secondItem="gOS-uS-kGx" secondAttribute="top" id="Yko-Dy-EFb"/>
+                            <constraint firstItem="hEo-L7-Pr4" firstAttribute="trailing" secondItem="fIT-zK-B97" secondAttribute="trailingMargin" id="g1S-Ll-TZS"/>
+                            <constraint firstItem="hEo-L7-Pr4" firstAttribute="leading" secondItem="fIT-zK-B97" secondAttribute="leadingMargin" id="iqX-pR-irZ"/>
+                            <constraint firstItem="BHu-qe-qFv" firstAttribute="top" secondItem="SY8-Hr-kW3" secondAttribute="bottom" constant="8" symbolic="YES" id="oD3-LQ-uaf"/>
+                            <constraint firstItem="gOS-uS-kGx" firstAttribute="bottom" secondItem="BHu-qe-qFv" secondAttribute="bottom" constant="74" id="qJa-jm-XCP"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="gOS-uS-kGx"/>
                     </view>
                     <navigationItem key="navigationItem" title="User Profile" id="AuM-pN-Iyq"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ahX-Ud-Cac" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4590" y="77"/>
+            <point key="canvasLocation" x="4589.6000000000004" y="76.911544227886068"/>
         </scene>
         <!--Fruits List-->
         <scene sceneID="jmr-gl-jdZ">
@@ -502,6 +540,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="avatar" width="384" height="384"/>
         <image name="settings" width="24" height="24"/>
         <image name="sign-in" width="18" height="18"/>
         <image name="sign-up" width="18" height="18"/>

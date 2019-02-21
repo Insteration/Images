@@ -1,5 +1,5 @@
 //
-//  SettingsViewController.swift
+//  UserViewController.swift
 //  Images
 //
 //  Created by Artem Karmaz on 2/21/19.
@@ -8,7 +8,7 @@
 
 import UIKit
 
-class SettingsViewController: UITableViewController {
+class UserViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
