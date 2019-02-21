@@ -26,11 +26,11 @@ class ImageViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        
         imageTitleName.title = image?.title
         guard let myImage = UIImage(named: (image?.image)!) else {return}
-        imageView.image = myImage
+        imageView.image = myImage.roundedImage
         imageNameLabel.text = image?.title
         imageSubTitileTextView.text = image?.text
     }
 }
-

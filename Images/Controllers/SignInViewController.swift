@@ -11,13 +11,14 @@ import UIKit
 class SignInViewController: UIViewController {
 
     @IBOutlet weak var signUpButton: UIButton!
+    @IBOutlet weak var signInButton: UIButton!
     @IBOutlet weak var loginTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
     @IBOutlet weak var orTextLabel: UILabel!
     
     fileprivate func createSignInSignOutButtons() {
         signUpButton.layer.borderWidth = 2
-        signUpButton.layer.borderColor = UIColor.gray.cgColor
+        signUpButton.layer.borderColor = UIColor.red.cgColor
         signUpButton.layer.cornerRadius = 10
         signUpButton.clipsToBounds = true
         signUpButton.addTarget(self, action: #selector(signInButtonPressed(sender:)), for: .touchDown)
@@ -79,13 +80,30 @@ class SignInViewController: UIViewController {
         })
     }
     
+    fileprivate func showSignIpButtonWithAnimation(view: UIView, hidden: Bool) {
+        UIView.transition(with: view, duration: 2.4, options: .transitionCrossDissolve, animations: {
+            self.signInButton.isHidden = hidden
+        })
+    }
+    
     fileprivate func showOrTextLabelWithAnimation(view: UIView, hidden: Bool) {
         UIView.transition(with: view, duration: 2.0, options: .transitionCrossDissolve, animations: {
             self.orTextLabel.isHidden = hidden
         })
     }
     
-    private func showAlert(_ titleAlert: String, _ alertMessage: String) {
+    fileprivate func createOrLabel() {
+        let strokeTextAttributes = [
+            NSAttributedString.Key.strokeColor : UIColor.red,
+            NSAttributedString.Key.foregroundColor : UIColor.white,
+            NSAttributedString.Key.strokeWidth : -4.0,
+            NSAttributedString.Key.font : UIFont.boldSystemFont(ofSize: 40)]
+            as [NSAttributedString.Key : Any]
+        
+        orTextLabel.attributedText = NSMutableAttributedString(string: "OR", attributes: strokeTextAttributes)
+    }
+    
+    fileprivate func showAlert(_ titleAlert: String, _ alertMessage: String) {
         let alert = UIAlertController(title: titleAlert,
                                       message: alertMessage,
                                       preferredStyle: .alert)
@@ -101,18 +119,44 @@ class SignInViewController: UIViewController {
     }
     
     @objc func signInButtonTyped(sender: UIButton) {
-        signUpButton.backgroundColor = UIColor.lightGray
+        signUpButton.backgroundColor = UIColor.orange
     }
     
     @objc fileprivate func dismissKeyboard() {
         view.endEditing(true)
     }
     
+    @objc func keyboardWillShow(notification: Notification) {
+        if let keyboardSize = (notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue {
+            if self.view.frame.origin.y == 0 {
+                self.view.frame.origin.y -= keyboardSize.height / 3
+            }
+        }
+        
+    }
+    
+    @objc func keyboardWillHide(notification: Notification) {
+        if let keyboardSize = (notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue {
+            if self.view.frame.origin.y != 0 {
+                self.view.frame.origin.y += keyboardSize.height / 3
+            }
+        }
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        createOrLabel()
         createSignInSignOutButtons()
         createLoginPasswordTextFields()
         createDissmisKeyboardOnTap()
+        
+        NotificationCenter.default.addObserver(self,
+                                               selector: #selector(keyboardWillShow(notification:)),
+                                               name: UIResponder.keyboardWillShowNotification, object: nil)
+        NotificationCenter.default.addObserver(self,
+                                               selector: #selector(keyboardWillHide(notification:)),
+                                               name: UIResponder.keyboardWillHideNotification, object: nil)
+        
         
         loginTextField.delegate = self
         passwordTextField.delegate = self
@@ -128,7 +172,10 @@ class SignInViewController: UIViewController {
     @IBAction func cancelButtonAction(_ sender: UIBarButtonItem) {
         dismiss(animated: true, completion: nil)
     }
-
+    @IBAction func signInButtonAction(_ sender: UIButton) {
+        
+    }
+    
 }
 
 extension SignInViewController: UITextFieldDelegate {
@@ -148,7 +195,8 @@ extension SignInViewController: UITextFieldDelegate {
             if loginTextField.text == "" || passwordTextField.text == "" {
                 showAlert("Oops!", "You not input anything!")
             } else {
-                 textField.resignFirstResponder()
+                textField.resignFirstResponder()
+                showSignIpButtonWithAnimation(view: signInButton, hidden: false)
                 showOrTextLabelWithAnimation(view: orTextLabel, hidden: true)
                 showSignUpButtonWithAnimation(view: signUpButton, hidden: true)
                 showAlert("Correct!", "Welcome to Images")

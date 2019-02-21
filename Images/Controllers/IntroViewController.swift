@@ -11,10 +11,14 @@ import UIKit
 class IntroViewController: UIViewController {
 
     @IBOutlet weak var signInButton: UIButton!
+    @IBOutlet weak var headerLabel: UILabel!
+    @IBOutlet weak var subHeaderLabel: UILabel!
+    
+
     
     fileprivate func createSignInSignOutButtons() {
         signInButton.layer.borderWidth = 2
-        signInButton.layer.borderColor = UIColor.gray.cgColor
+        signInButton.layer.borderColor = UIColor.red.cgColor
         signInButton.layer.cornerRadius = 10
         signInButton.clipsToBounds = true
         signInButton.addTarget(self, action: #selector(signInButtonPressed(sender:)), for: .touchDown)
@@ -32,7 +36,7 @@ class IntroViewController: UIViewController {
     }
     
     @objc func signInButtonTyped(sender: UIButton) {
-        signInButton.backgroundColor = UIColor.lightGray
+        signInButton.backgroundColor = UIColor.orange
     }
 
     var someProperties: String? {
@@ -41,9 +45,33 @@ class IntroViewController: UIViewController {
         }
     }
     
+    fileprivate func createHeaderLabel() {
+        let strokeTextAttributes = [
+            NSAttributedString.Key.strokeColor : UIColor.red,
+            NSAttributedString.Key.foregroundColor : UIColor.white,
+            NSAttributedString.Key.strokeWidth : -4.0,
+            NSAttributedString.Key.font : UIFont.boldSystemFont(ofSize: 73)]
+            as [NSAttributedString.Key : Any]
+        
+        headerLabel.attributedText = NSMutableAttributedString(string: "FRUITS!", attributes: strokeTextAttributes)
+    }
+    
+    fileprivate func createSubHeaderLabel() {
+        let strokeTextAttributes = [
+            NSAttributedString.Key.strokeColor : UIColor.red,
+            NSAttributedString.Key.foregroundColor : UIColor.white,
+            NSAttributedString.Key.strokeWidth : -4.0,
+            NSAttributedString.Key.font : UIFont.boldSystemFont(ofSize: 30)]
+            as [NSAttributedString.Key : Any]
+        
+        subHeaderLabel.attributedText = NSMutableAttributedString(string: "Our fruits, your opinion!", attributes: strokeTextAttributes)
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        createSubHeaderLabel()
+        createHeaderLabel()
         createSignInSignOutButtons()
         
     }
