@@ -7,3 +7,7 @@
 //
 
 import Foundation
+
+struct ImageSettings {
+    static var alphaImage: Float = 1.0
+}

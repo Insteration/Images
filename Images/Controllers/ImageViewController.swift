@@ -18,6 +18,11 @@ class ImageViewController: UIViewController {
     @IBOutlet weak var imageNameLabel: UILabel!
     @IBOutlet weak var imageSubTitileTextView: UITextView!
     
+
+    override func viewWillAppear(_ animated: Bool) {
+        imageView.alpha = CGFloat(ImageSettings.alphaImage)
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         

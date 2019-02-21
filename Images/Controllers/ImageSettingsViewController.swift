@@ -14,9 +14,22 @@ class ImageSettingsViewController: UITableViewController {
     @IBOutlet weak var imageTappingSwitch: UISwitch!
     @IBOutlet weak var imageAlphaSlider: UISlider!
     
+
+    override func viewWillAppear(_ animated: Bool) {
+        imageAlphaSlider.value = ImageSettings.alphaImage
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
-      
+        tableView.rowHeight = UITableView.automaticDimension
+        tableView.estimatedRowHeight = 44.0
     }
+    
+    
+    @IBAction func imageAlphaSliderAction(_ sender: UISlider) {
+        ImageSettings.alphaImage = imageAlphaSlider.value
+        print("Alpha set up on -- \(ImageSettings.alphaImage)")
+    }
+    
 }

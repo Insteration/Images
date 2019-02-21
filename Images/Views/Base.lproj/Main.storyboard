@@ -298,8 +298,11 @@
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="Xhy-pi-nbe">
+                                                <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="1" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="Xhy-pi-nbe">
                                                     <rect key="frame" x="123" y="7" width="238" height="30"/>
+                                                    <connections>
+                                                        <action selector="imageAlphaSliderAction:" destination="M7Q-M3-Ww9" eventType="valueChanged" id="pmy-vd-baD"/>
+                                                    </connections>
                                                 </slider>
                                             </subviews>
                                             <constraints>
