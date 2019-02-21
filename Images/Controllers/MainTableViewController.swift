@@ -82,6 +82,9 @@ class MainTableViewController: UITableViewController {
         }
     }
  
+    @IBAction func logoutButtonAction(_ sender: UIBarButtonItem) {
+        dismiss(animated: true, completion: nil)
+    }
 }
 
 extension UIImage{
