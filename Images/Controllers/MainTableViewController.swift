@@ -18,12 +18,14 @@ class MainTableViewController: UITableViewController {
     
     var storage = Storage()
     
+    @IBOutlet weak var moveTablesButton: UIBarButtonItem!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         tableView.rowHeight = UITableView.automaticDimension
         tableView.estimatedRowHeight = 44.0
+        
     }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -85,6 +87,10 @@ class MainTableViewController: UITableViewController {
         let storyboard : UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
         let main = storyboard.instantiateViewController(withIdentifier: "Main") as! IntroViewController
         self.present(main, animated: true, completion: nil)
+    }
+    
+    @IBAction func moveTablesButtonAction(_ sender: UIBarButtonItem) {
+//        if moveTablesButton
     }
 }
 

@@ -215,7 +215,6 @@
         <!--Settings-->
         <scene sceneID="mQm-vM-dEk">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="bhL-TX-ymd" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <tableViewController id="M7Q-M3-Ww9" customClass="ImageSettingsViewController" customModule="Images" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="grouped" separatorStyle="singleLineEtched" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="18" sectionFooterHeight="18" id="hCt-8M-sbG">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
@@ -331,6 +330,7 @@
                         <outlet property="imageTappingSwitch" destination="hHq-D5-2qB" id="7vM-iu-grH"/>
                     </connections>
                 </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="bhL-TX-ymd" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="5484" y="812.74362818590714"/>
         </scene>
@@ -431,12 +431,22 @@
                                 <action selector="quitButtonAction:" destination="3Zq-y6-fXW" id="sb7-kz-nG6"/>
                             </connections>
                         </barButtonItem>
-                        <barButtonItem key="rightBarButtonItem" title="Item" image="user" id="EGD-am-8BT">
-                            <connections>
-                                <segue destination="mfd-9u-Jgk" kind="show" id="vkh-yD-Jww"/>
-                            </connections>
-                        </barButtonItem>
+                        <rightBarButtonItems>
+                            <barButtonItem title="Item" image="user" id="EGD-am-8BT">
+                                <connections>
+                                    <segue destination="mfd-9u-Jgk" kind="show" id="vkh-yD-Jww"/>
+                                </connections>
+                            </barButtonItem>
+                            <barButtonItem title="Item" image="settings" id="W4A-8r-OMz">
+                                <connections>
+                                    <action selector="moveTablesButtonAction:" destination="3Zq-y6-fXW" id="Cs7-8Z-589"/>
+                                </connections>
+                            </barButtonItem>
+                        </rightBarButtonItems>
                     </navigationItem>
+                    <connections>
+                        <outlet property="moveTablesButton" destination="W4A-8r-OMz" id="acO-3G-FY6"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="7tC-fU-4GC" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
