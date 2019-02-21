@@ -318,9 +318,8 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QAa-xS-G7U">
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QAa-xS-G7U">
                                 <rect key="frame" x="164" y="264" width="46" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Button"/>
                                 <connections>
                                     <segue destination="l2u-yH-MC2" kind="show" id="Hos-fX-s49"/>
@@ -333,8 +332,11 @@
                             <constraint firstItem="aSS-9d-aNh" firstAttribute="bottom" secondItem="Det-PV-wDq" secondAttribute="bottom" constant="411" id="1hz-d2-6xS"/>
                             <constraint firstItem="QdS-V5-RQf" firstAttribute="top" secondItem="aSS-9d-aNh" secondAttribute="top" constant="114" id="9gt-UD-q5M"/>
                             <constraint firstItem="Det-PV-wDq" firstAttribute="top" secondItem="QdS-V5-RQf" secondAttribute="bottom" constant="8" symbolic="YES" id="G52-Yk-Gi5"/>
+                            <constraint firstItem="QAa-xS-G7U" firstAttribute="centerX" secondItem="Det-PV-wDq" secondAttribute="centerX" id="KF5-fR-hDK"/>
                             <constraint firstItem="QdS-V5-RQf" firstAttribute="leading" secondItem="7mD-tS-aPe" secondAttribute="leadingMargin" id="KsQ-dC-joN"/>
+                            <constraint firstItem="QAa-xS-G7U" firstAttribute="top" secondItem="Det-PV-wDq" secondAttribute="bottom" constant="8" symbolic="YES" id="MXo-1z-6oo"/>
                             <constraint firstItem="QdS-V5-RQf" firstAttribute="leading" secondItem="Det-PV-wDq" secondAttribute="leading" id="Ply-NL-nno"/>
+                            <constraint firstItem="QAa-xS-G7U" firstAttribute="leading" secondItem="aSS-9d-aNh" secondAttribute="leading" constant="164" id="TSu-ze-RXp"/>
                             <constraint firstItem="2uE-b7-MpX" firstAttribute="top" secondItem="7mD-tS-aPe" secondAttribute="top" id="Vhu-hx-teo"/>
                             <constraint firstItem="2uE-b7-MpX" firstAttribute="bottom" secondItem="aSS-9d-aNh" secondAttribute="bottom" constant="50" id="a1m-ng-jnD"/>
                             <constraint firstItem="QdS-V5-RQf" firstAttribute="centerX" secondItem="2uE-b7-MpX" secondAttribute="centerX" id="kkt-ls-Wxs"/>
