@@ -22,7 +22,7 @@ class IntroViewController: UIViewController {
     }
     
     fileprivate func showLoginButton(view: UIView, hidden: Bool) {
-        UIView.transition(with: view, duration: 0.9, options: .transitionCrossDissolve, animations: {
+        UIView.transition(with: view, duration: 2.0, options: .transitionCrossDissolve, animations: {
             self.signInButton.isHidden = hidden
         })
     }

@@ -13,6 +13,7 @@ class ImageViewController: UIViewController {
    var storage = Storage()
     var image: Headline?
 
+    @IBOutlet weak var imageTitleName: UINavigationItem!
     @IBOutlet weak var imageView: UIImageView!
     @IBOutlet weak var imageNameLabel: UILabel!
     @IBOutlet weak var imageSubTitileTextView: UITextView!
@@ -20,6 +21,7 @@ class ImageViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        imageTitleName.title = image?.title
         guard let myImage = UIImage(named: (image?.image)!) else {return}
         imageView.image = myImage
         imageNameLabel.text = image?.title

@@ -74,7 +74,7 @@ class SignInViewController: UIViewController {
     }
     
     fileprivate func showSignUpButtonWithAnimation(view: UIView, hidden: Bool) {
-        UIView.transition(with: view, duration: 2.2, options: .transitionCrossDissolve, animations: {
+        UIView.transition(with: view, duration: 2.4, options: .transitionCrossDissolve, animations: {
             self.signUpButton.isHidden = hidden
         })
     }
