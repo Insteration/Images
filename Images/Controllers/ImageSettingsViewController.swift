@@ -17,6 +17,10 @@ class ImageSettingsViewController: UITableViewController {
 
     override func viewWillAppear(_ animated: Bool) {
         imageAlphaSlider.value = ImageSettings.alphaImage
+        
+        if ImageSettings.tappedImage == 1 {
+            imageTappingSwitch.isOn = true
+        }
     }
     
     override func viewDidLoad() {
@@ -30,6 +34,16 @@ class ImageSettingsViewController: UITableViewController {
     @IBAction func imageAlphaSliderAction(_ sender: UISlider) {
         ImageSettings.alphaImage = imageAlphaSlider.value
         print("Alpha set up on -- \(ImageSettings.alphaImage)")
+    }
+    
+    @IBAction func imageTappingAction(_ sender: UISwitch) {
+        if imageTappingSwitch.isOn {
+            ImageSettings.tappedImage = 1
+            print("Tapped image is ON - \(ImageSettings.tappedImage)")
+        } else {
+            ImageSettings.tappedImage = 0
+            print("Tapped image is OFF - \(ImageSettings.tappedImage)")
+        }
     }
     
 }

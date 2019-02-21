@@ -10,4 +10,5 @@ import Foundation
 
 struct ImageSettings {
     static var alphaImage: Float = 1.0
+    static var tappedImage = 0
 }

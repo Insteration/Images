@@ -18,18 +18,31 @@ class ImageViewController: UIViewController {
     @IBOutlet weak var imageNameLabel: UILabel!
     @IBOutlet weak var imageSubTitileTextView: UITextView!
     
+    fileprivate func getTappedImages() {
+        if ImageSettings.tappedImage == 1 {
+            let tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(imageTapped(tapGestureRecognizer:)))
+            imageView.isUserInteractionEnabled = true
+            imageView.addGestureRecognizer(tapGestureRecognizer)
+        }
+    }
+    
+    @objc func imageTapped(tapGestureRecognizer: UITapGestureRecognizer) {
+        let tappedImage = tapGestureRecognizer.view as! UIImageView
+        imageNameLabel.text = "TAP TAP"
+        guard let newImage = UIImage(named: "Apple") else {
+            return
+        }
+        tappedImage.image = newImage.roundedImage
+    }
 
     override func viewWillAppear(_ animated: Bool) {
+        getTappedImages()
         imageView.alpha = CGFloat(ImageSettings.alphaImage)
     }
+
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        let tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(imageTapped(tapGestureRecognizer:)))
-        imageView.isUserInteractionEnabled = true
-        imageView.addGestureRecognizer(tapGestureRecognizer)
-        
         
         imageTitleName.title = image?.title
         guard let myImage = UIImage(named: (image?.image)!) else {return}
@@ -38,8 +51,5 @@ class ImageViewController: UIViewController {
         imageSubTitileTextView.text = image?.text
     }
     
-    @objc func imageTapped(tapGestureRecognizer: UITapGestureRecognizer) {
-        let tappedImage = tapGestureRecognizer.view as! UIImageView
-        imageNameLabel.text = "TAP TAP"
-    }
+
 }
