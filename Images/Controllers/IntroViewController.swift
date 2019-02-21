@@ -11,7 +11,6 @@ import UIKit
 class IntroViewController: UIViewController {
 
     @IBOutlet weak var signInButton: UIButton!
-    @IBOutlet weak var signUpButton: UIButton!
     
     fileprivate func createSignInSignOutButtons() {
         signInButton.layer.borderWidth = 2
@@ -20,13 +19,6 @@ class IntroViewController: UIViewController {
         signInButton.clipsToBounds = true
         signInButton.addTarget(self, action: #selector(signInButtonPressed(sender:)), for: .touchDown)
         signInButton.addTarget(self, action: #selector(signInButtonTyped(sender:)), for: .touchUpInside)
-        
-        signUpButton.layer.borderWidth = 2
-        signUpButton.layer.borderColor = UIColor.gray.cgColor
-        signUpButton.layer.cornerRadius = 10
-        signUpButton.clipsToBounds = true
-        signUpButton.addTarget(self, action: #selector(signUpButtonPressed(sender:)), for: .touchDown)
-        signUpButton.addTarget(self, action: #selector(signUpButtonTyped(sender:)), for: .touchUpInside)
     }
     
     fileprivate func showLoginButton(view: UIView, hidden: Bool) {
@@ -41,14 +33,6 @@ class IntroViewController: UIViewController {
     
     @objc func signInButtonTyped(sender: UIButton) {
         signInButton.backgroundColor = UIColor.lightGray
-    }
-    
-    @objc func signUpButtonPressed(sender: UIButton) {
-        signUpButton.backgroundColor = .white
-    }
-    
-    @objc func signUpButtonTyped(sender: UIButton) {
-        signUpButton.backgroundColor = UIColor.lightGray
     }
 
     var someProperties: String? {
@@ -80,18 +64,6 @@ class IntroViewController: UIViewController {
                        completion: { _ in
                         UIView.animate(withDuration: 0.1) {
                             self.signInButton.transform = CGAffineTransform.identity
-                        }
-        })
-    }
-    
-    @IBAction func signUpButtonAction(_ sender: UIButton) {
-        UIView.animate(withDuration: 0.6,
-                       animations: {
-                        self.signUpButton.transform = CGAffineTransform(scaleX: 0.96, y: 0.96)
-        },
-                       completion: { _ in
-                        UIView.animate(withDuration: 0.1) {
-                            self.signUpButton.transform = CGAffineTransform.identity
                         }
         })
     }

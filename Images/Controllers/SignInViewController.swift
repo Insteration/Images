@@ -62,7 +62,7 @@ class SignInViewController: UIViewController {
     }
     
     fileprivate func showLoginTextFieldWithAnimation(view: UIView, hidden: Bool) {
-        UIView.transition(with: view, duration: 3.0, options: .transitionCrossDissolve, animations: {
+        UIView.transition(with: view, duration: 1.3, options: .transitionCrossDissolve, animations: {
             self.loginTextField.isHidden = hidden
         })
     }
@@ -74,13 +74,13 @@ class SignInViewController: UIViewController {
     }
     
     fileprivate func showSignUpButtonWithAnimation(view: UIView, hidden: Bool) {
-        UIView.transition(with: view, duration: 4.5, options: .transitionCrossDissolve, animations: {
+        UIView.transition(with: view, duration: 2.2, options: .transitionCrossDissolve, animations: {
             self.signUpButton.isHidden = hidden
         })
     }
     
     fileprivate func showOrTextLabelWithAnimation(view: UIView, hidden: Bool) {
-        UIView.transition(with: view, duration: 3.8, options: .transitionCrossDissolve, animations: {
+        UIView.transition(with: view, duration: 2.0, options: .transitionCrossDissolve, animations: {
             self.orTextLabel.isHidden = hidden
         })
     }
@@ -89,7 +89,6 @@ class SignInViewController: UIViewController {
         let alert = UIAlertController(title: titleAlert,
                                       message: alertMessage,
                                       preferredStyle: .alert)
-//        alert.view.backgroundColor = UIColor.blue
         alert.addAction(UIAlertAction(title: "OK",
                                       style: .default,
                                       handler: { action in

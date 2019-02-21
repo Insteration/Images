@@ -18,19 +18,19 @@ class MainTableViewController: UITableViewController {
     
     var storage = Storage()
     
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         tableView.rowHeight = UITableView.automaticDimension
         tableView.estimatedRowHeight = 44.0
     }
-
+    
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
         return storage.headlines.count
     }
-
+    
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath)
@@ -53,7 +53,7 @@ class MainTableViewController: UITableViewController {
         
         return cell
     }
- 
+    
     override func tableView(_ tableView: UITableView, editingStyleForRowAt indexPath: IndexPath) -> UITableViewCell.EditingStyle {
         return .none
     }
@@ -67,7 +67,7 @@ class MainTableViewController: UITableViewController {
         storage.headlines.remove(at: sourceIndexPath.row)
         storage.headlines.insert(movedObject, at: destinationIndexPath.row)
     }
-
+    
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         print("You tapped cell number \(indexPath.row).")
     }
@@ -81,9 +81,11 @@ class MainTableViewController: UITableViewController {
             }
         }
     }
- 
-    @IBAction func logoutButtonAction(_ sender: UIBarButtonItem) {
-        dismiss(animated: true, completion: nil)
+    
+    @IBAction func quitButtonAction(_ sender: UIBarButtonItem) {
+        let storyboard : UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
+        let main = storyboard.instantiateViewController(withIdentifier: "Main") as! IntroViewController
+        self.present(main, animated: true, completion: nil)
     }
 }
 
