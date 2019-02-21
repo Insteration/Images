@@ -7,3 +7,10 @@
 //
 
 import Foundation
+
+struct Headline {
+    var id : Int
+    var title : String
+    var text : String
+    var image : String
+}

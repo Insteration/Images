@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		D901E3E4221EAA5E00ABAA3F /* Storage.swift in Sources */ = {isa = PBXBuildFile; fileRef = D901E3E3221EAA5E00ABAA3F /* Storage.swift */; };
+		D901E3E6221EABC700ABAA3F /* ImageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D901E3E5221EABC700ABAA3F /* ImageViewController.swift */; };
 		D99BE94C221C874B00E468EF /* Data.swift in Sources */ = {isa = PBXBuildFile; fileRef = D99BE94B221C874B00E468EF /* Data.swift */; };
 		D9C17756221BFB1000384D26 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9C17755221BFB1000384D26 /* AppDelegate.swift */; };
 		D9C17758221BFB1000384D26 /* IntroViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9C17757221BFB1000384D26 /* IntroViewController.swift */; };
@@ -19,6 +21,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		D901E3E3221EAA5E00ABAA3F /* Storage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Storage.swift; sourceTree = "<group>"; };
+		D901E3E5221EABC700ABAA3F /* ImageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageViewController.swift; sourceTree = "<group>"; };
 		D99BE94B221C874B00E468EF /* Data.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Data.swift; sourceTree = "<group>"; };
 		D9C17752221BFB1000384D26 /* Images.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Images.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D9C17755221BFB1000384D26 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -50,6 +54,7 @@
 				D9C17767221C05B700384D26 /* SignInViewController.swift */,
 				D9ED4886221C27A3006532A3 /* MainTableViewController.swift */,
 				D9C17769221C05FD00384D26 /* SignUpViewController.swift */,
+				D901E3E5221EABC700ABAA3F /* ImageViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -66,6 +71,7 @@
 			isa = PBXGroup;
 			children = (
 				D99BE94B221C874B00E468EF /* Data.swift */,
+				D901E3E3221EAA5E00ABAA3F /* Storage.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -172,10 +178,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				D9C17758221BFB1000384D26 /* IntroViewController.swift in Sources */,
+				D901E3E4221EAA5E00ABAA3F /* Storage.swift in Sources */,
 				D99BE94C221C874B00E468EF /* Data.swift in Sources */,
 				D9C17756221BFB1000384D26 /* AppDelegate.swift in Sources */,
 				D9C1776A221C05FD00384D26 /* SignUpViewController.swift in Sources */,
 				D9ED4887221C27A3006532A3 /* MainTableViewController.swift in Sources */,
+				D901E3E6221EABC700ABAA3F /* ImageViewController.swift in Sources */,
 				D9C17768221C05B700384D26 /* SignInViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
